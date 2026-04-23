@@ -1,0 +1,26 @@
+.Header {
+    width: min(1180px, 94vw);
+    margin: 0 auto;
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-2) 0;
+}
+
+.Header h1 {
+    background: linear-gradient(135deg, var(--text), #364152 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.03em;
+}
+
+@media (max-width: 760px) {
+    .Header {
+        min-height: 72px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

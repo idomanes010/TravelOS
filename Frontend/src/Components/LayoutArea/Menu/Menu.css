@@ -1,0 +1,59 @@
+.Menu {
+    width: min(1180px, 94vw);
+    margin: 0 auto;
+    min-height: 62px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    overflow-x: auto;
+    padding: var(--space-2) 0;
+}
+
+.Menu a {
+    position: relative;
+    text-decoration: none;
+    color: #344054;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 8px 2px;
+    transition: color var(--transition);
+}
+
+.Menu a:hover {
+    color: var(--primary);
+}
+
+.Menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-2));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+
+.Menu a:hover::after,
+.Menu a.active::after {
+    transform: scaleX(1);
+}
+
+.Menu a.active {
+    color: var(--primary);
+}
+
+.Menu > span {
+    color: #c5cad4;
+}
+
+@media (max-width: 760px) {
+    .Menu {
+        gap: 10px;
+        min-height: 56px;
+        padding: 10px 0;
+    }
+}

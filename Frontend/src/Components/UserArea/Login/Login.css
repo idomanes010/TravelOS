@@ -1,0 +1,38 @@
+.Login {
+    display: grid;
+    place-items: center;
+    padding: var(--space-5) var(--space-2);
+    animation: fadeInUp 400ms ease both;
+}
+
+.Login form {
+    width: min(460px, 100%);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-5);
+    display: grid;
+    gap: var(--space-2);
+    text-align: left;
+}
+
+.Login label {
+    color: #344054;
+    font-weight: 600;
+}
+
+.Login button {
+    margin-top: var(--space-1);
+}
+
+.Login p {
+    margin-top: var(--space-2);
+    text-align: center;
+}
+
+.Login p a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}

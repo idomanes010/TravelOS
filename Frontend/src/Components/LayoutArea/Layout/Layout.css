@@ -1,0 +1,36 @@
+.Layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+}
+
+.Layout > header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    backdrop-filter: blur(8px);
+    background: rgba(245, 247, 251, 0.8);
+    border-bottom: 1px solid var(--border);
+}
+
+.Layout > nav {
+    position: sticky;
+    top: 78px;
+    z-index: 25;
+    backdrop-filter: blur(8px);
+    background: rgba(245, 247, 251, 0.78);
+    border-bottom: 1px solid var(--border);
+}
+
+.Layout > main {
+    width: min(1180px, 94vw);
+    margin: 0 auto;
+    padding: var(--space-4) 0 var(--space-6);
+    animation: fadeInUp 420ms ease both;
+}
+
+@media (max-width: 760px) {
+    .Layout > nav {
+        top: 72px;
+    }
+}

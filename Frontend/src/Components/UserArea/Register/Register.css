@@ -1,0 +1,38 @@
+.Register {
+    display: grid;
+    place-items: center;
+    padding: var(--space-5) var(--space-2);
+    animation: fadeInUp 400ms ease both;
+}
+
+.Register form {
+    width: min(480px, 100%);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-5);
+    display: grid;
+    gap: var(--space-2);
+    text-align: left;
+}
+
+.Register label {
+    color: #344054;
+    font-weight: 600;
+}
+
+.Register button {
+    margin-top: var(--space-1);
+}
+
+.Register p {
+    margin-top: var(--space-2);
+    text-align: center;
+}
+
+.Register p a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}

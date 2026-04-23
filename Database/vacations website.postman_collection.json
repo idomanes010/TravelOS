@@ -1,0 +1,531 @@
+{
+  "info": {
+    "_postman_id": "40b8a65c-ed04-4cea-92c3-55a304229aa9",
+    "name": "vacations website",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51856854",
+    "_collection_link": "https://go.postman.co/collection/51856854-40b8a65c-ed04-4cea-92c3-55a304229aa9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "vacations",
+      "item": [
+        {
+          "name": "get all vacations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6NSwiZmlyc3ROYW1lIjoiaWRvMDAxMSIsImxhc3ROYW1lIjoibWFuZXMiLCJlbWFpbCI6Imlkb0BnYW1pbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzc1NjI5MTE5LCJleHAiOjE3NzU2Mzk5MTl9.4LBtZGSAQOdkomQKpxGqWRX2B7cKePQuhVEpKbekjyU",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/vacations",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "vacations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get vacation by id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6NSwiZmlyc3ROYW1lIjoiaWRvMDAxMSIsImxhc3ROYW1lIjoibWFuZXMiLCJlbWFpbCI6Imlkb0BnYW1pbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzc1NjI5MTE5LCJleHAiOjE3NzU2Mzk5MTl9.4LBtZGSAQOdkomQKpxGqWRX2B7cKePQuhVEpKbekjyU",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/vacations/18",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "vacations",
+                "18"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "register",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const token = pm.response.json();\r",
+                  "pm.collectionVariables.set(\"token\", token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"ido0011\",\r\n  \"lastName\": \"manes\",\r\n  \"email\": \"ido@gamil.com\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"admin\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const token = pm.response.json();\r",
+                  "pm.collectionVariables.set(\"token\", token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6NSwiZmlyc3ROYW1lIjoiaWRvMDAxMSIsImxhc3ROYW1lIjoibWFuZXMiLCJlbWFpbCI6Imlkb0BnYW1pbC5jb20iLCJyb2xlIjoidXNlciJ9LCJpYXQiOjE3NzU0OTM5MTIsImV4cCI6MTc3NTUwNDcxMn0.BShbjN8U1njT6wZcoalY2C13R5nNRK3cq4I45Pb4edE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \r\n  \"email\": \"ido@gamil.com\",\r\n  \"password\": \"123456\"\r\n  \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "likes",
+      "item": [
+        {
+          "name": "likes",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6NSwiZmlyc3ROYW1lIjoiaWRvMDAxMSIsImxhc3ROYW1lIjoibWFuZXMiLCJlbWFpbCI6Imlkb0BnYW1pbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzc1NjI5MTE5LCJleHAiOjE3NzU2Mzk5MTl9.4LBtZGSAQOdkomQKpxGqWRX2B7cKePQuhVEpKbekjyU",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \r\n  \"vacationId\": 15\r\n  \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/likes",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "likes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete like",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6NSwiZmlyc3ROYW1lIjoiaWRvMDAxMSIsImxhc3ROYW1lIjoibWFuZXMiLCJlbWFpbCI6Imlkb0BnYW1pbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzc1NjI5MTE5LCJleHAiOjE3NzU2Mzk5MTl9.4LBtZGSAQOdkomQKpxGqWRX2B7cKePQuhVEpKbekjyU",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/likes/15",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "likes",
+                "15"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "admin",
+      "item": [
+        {
+          "name": "update vacation",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6NSwiZmlyc3ROYW1lIjoiaWRvMDAxMSIsImxhc3ROYW1lIjoibWFuZXMiLCJlbWFpbCI6Imlkb0BnYW1pbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzc1NjI5MTE5LCJleHAiOjE3NzU2Mzk5MTl9.4LBtZGSAQOdkomQKpxGqWRX2B7cKePQuhVEpKbekjyU",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/admin/update/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "update",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add vacation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6NSwiZmlyc3ROYW1lIjoiaWRvMDAxMSIsImxhc3ROYW1lIjoibWFuZXMiLCJlbWFpbCI6Imlkb0BnYW1pbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzc1NDk0NTAxLCJleHAiOjE3NzU1MDUzMDF9.Pga99pffCddsd49dPcB7iV2RrV58OctYQwQhmTtSB8s",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"destination\": \"israel\",\r\n        \"description\": \"beautiful\",\r\n        \"startDate\": \"2026-10-25\",\r\n        \"endDate\": \"2026-10-29\",\r\n        \"price\": \"700.00\",\r\n        \"imageName\": \"gggg\"\r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/admin/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete vacation",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6NSwiZmlyc3ROYW1lIjoiaWRvMDAxMSIsImxhc3ROYW1lIjoibWFuZXMiLCJlbWFpbCI6Imlkb0BnYW1pbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzc1NDk0NTAxLCJleHAiOjE3NzU1MDUzMDF9.Pga99pffCddsd49dPcB7iV2RrV58OctYQwQhmTtSB8s",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"destination\": \"Italy\",\r\n        \"description\": \"beautifulllll\",\r\n        \"startDate\": \"2026-10-25\",\r\n        \"endDate\": \"2026-10-29\",\r\n        \"price\": \"700.00\",\r\n        \"imageName\": \"gggg\"\r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/admin/delete/27",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "delete",
+                "27"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "admin vacation report",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const token = pm.response.json();\r",
+                  "pm.collectionVariables.set(\"token\", token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6NSwiZmlyc3ROYW1lIjoiaWRvMDAxMSIsImxhc3ROYW1lIjoibWFuZXMiLCJlbWFpbCI6Imlkb0BnYW1pbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzc1NjI5MTE5LCJleHAiOjE3NzU2Mzk5MTl9.4LBtZGSAQOdkomQKpxGqWRX2B7cKePQuhVEpKbekjyU",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \r\n  \"email\": \"ido.manes@gamil.com\",\r\n  \"password\": \"123456\"\r\n  \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/admin/report",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "report"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "gpt/mcp",
+      "item": [
+        {
+          "name": "ask gpt",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6NSwiZmlyc3ROYW1lIjoiaWRvMDAxMSIsImxhc3ROYW1lIjoibWFuZXMiLCJlbWFpbCI6Imlkb0BnYW1pbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzc1NjI5MTE5LCJleHAiOjE3NzU2Mzk5MTl9.4LBtZGSAQOdkomQKpxGqWRX2B7cKePQuhVEpKbekjyU"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"what there is to do in italy?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/ai",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "ai"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ask mcp",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6NSwiZmlyc3ROYW1lIjoiaWRvMDAxMSIsImxhc3ROYW1lIjoibWFuZXMiLCJlbWFpbCI6Imlkb0BnYW1pbC5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNzc1NjI5MTE5LCJleHAiOjE3NzU2Mzk5MTl9.4LBtZGSAQOdkomQKpxGqWRX2B7cKePQuhVEpKbekjyU"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"question\": \"What is the average vacation price?\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/ai/mcp",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "ai",
+                "mcp"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}

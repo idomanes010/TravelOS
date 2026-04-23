@@ -1,0 +1,36 @@
+.UserMenu {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.login,
+.logged-out {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.login > span,
+.logged-out > span {
+    color: #475467;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.logged-out a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.logged-out a:hover {
+    color: var(--primary-2);
+}
+
+.UserMenu button {
+    padding: 8px 13px;
+    font-size: 0.9rem;
+}

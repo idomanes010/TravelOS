@@ -1,0 +1,23 @@
+.VacationReport {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-4);
+    display: grid;
+    gap: var(--space-3);
+    animation: fadeInUp 420ms ease both;
+}
+
+.VacationReport h2 {
+    text-align: left;
+}
+
+.VacationReport > button {
+    justify-self: start;
+}
+
+.VacationReport p {
+    text-align: left;
+    color: var(--text-muted);
+}
