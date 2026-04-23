@@ -25,6 +25,7 @@ class App {
                 limit: 20,
                 skip: (request: Request) => request.path.startsWith("/api/vacations/images/")
             }));
+            server.use("/ping", errorsMiddleware.ping);
             server.use(cors());
             server.use(helmet({
                 crossOriginResourcePolicy: false

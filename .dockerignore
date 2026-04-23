@@ -1,0 +1,6 @@
+**/node_modules
+**/vacations website.postman_collection.json
+**/vacationdb.sql
+**/Dockerfile
+.dockerignore
+compose.yaml

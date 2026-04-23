@@ -17,6 +17,9 @@ class ErrorsMiddleware {
     public routeNotFound(request: Request, response: Response, next: NextFunction) {
         next(new RouteNotFoundError(request.originalUrl));
     }
+    public ping(request: Request, response: Response, next: NextFunction): void {
+        response.send("pong");
+    }
 
 }
 
