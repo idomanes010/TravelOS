@@ -9,6 +9,7 @@ A full-stack vacation discovery platform with AI-powered travel recommendations.
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Running the Project](#running-the-project)
+- [Docker Setup](#docker-setup)
 - [Project Structure](#project-structure)
 - [API Endpoints](#api-endpoints)
 - [About](#about)
@@ -55,33 +56,43 @@ A full-stack vacation discovery platform with AI-powered travel recommendations.
 ### Database
 - **MySQL** with connection pooling
 
+### Containerization
+- **Docker** & **Docker Compose** for easy deployment
+
 ## 📦 Prerequisites
 
 Before you begin, ensure you have installed:
-- **Node.js** (v16 or higher)
-- **npm** or **yarn** package manager
-- **MySQL** database server
+- **Node.js** (v16 or higher) - for local development
+- **npm** or **yarn** package manager - for local development
+- **MySQL** database server - for local development
+- **Docker** & **Docker Compose** - for containerized deployment
 - **Git**
 
 ## 🚀 Installation
 
-### 1. Clone the repository
+### Option 1: Local Development Setup
+
+#### 1. Clone the repository
 ```bash
 git clone https://github.com/yourusername/TravelOS.git
 cd TravelOS
 ```
 
-### 2. Install Backend Dependencies
+#### 2. Install Backend Dependencies
 ```bash
 cd Backend
 npm install
 ```
 
-### 3. Install Frontend Dependencies
+#### 3. Install Frontend Dependencies
 ```bash
 cd ../Frontend
 npm install
 ```
+
+### Option 2: Docker Setup (Recommended)
+
+If you prefer using Docker, skip the manual dependency installation and proceed to the [Docker Setup](#docker-setup) section.
 
 ## ⚙️ Configuration
 
@@ -95,7 +106,7 @@ ENVIRONMENT=development
 PORT=4000
 
 # Database
-MYSQL_HOST=localhost
+MYSQL_HOST=mysql
 MYSQL_USER=root
 MYSQL_PASSWORD=your_mysql_password
 MYSQL_DATABASE=travel_os
@@ -113,6 +124,8 @@ CHAT_GPT_API_KEY=your_openai_api_key_here
 # MCP Server
 MCP_SERVER_URL=http://localhost:4000/mcp
 ```
+
+**Note**: For Docker setup, the `MYSQL_HOST` should be `mysql` (the service name in docker-compose.yml).
 
 ### Frontend Environment Setup
 
@@ -163,7 +176,82 @@ npm install -g concurrently
 concurrently "cd Backend && npm start" "cd Frontend && npm start"
 ```
 
-## 📁 Project Structure
+## � Docker Setup
+
+### Prerequisites
+- Docker Desktop installed and running
+- Docker Compose V2
+
+### Quick Start with Docker
+
+1. **Clone and navigate to the project**:
+   ```bash
+   git clone https://github.com/yourusername/TravelOS.git
+   cd TravelOS
+   ```
+
+2. **Configure environment variables**:
+   - Copy `.env.example` to `.env` in the Backend directory (if provided)
+   - Update the `.env` file with your OpenAI API key and other settings
+   - Ensure `MYSQL_HOST=mysql` for Docker networking
+
+3. **Build and run with Docker Compose**:
+   ```bash
+   docker-compose up --build
+   ```
+
+   This will:
+   - Build the backend and frontend images
+   - Start a MySQL database container
+   - Run the backend on port 4000
+   - Run the frontend on port 5173
+
+4. **Access the application**:
+   - Frontend: http://localhost:5173
+   - Backend API: http://localhost:4000
+
+### Docker Commands
+
+```bash
+# Start services
+docker-compose up
+
+# Start in background
+docker-compose up -d
+
+# Stop services
+docker-compose down
+
+# Rebuild and restart
+docker-compose up --build --force-recreate
+
+# View logs
+docker-compose logs -f
+
+# Clean up (remove volumes)
+docker-compose down -v
+```
+
+### Docker Services
+
+- **mysql**: MySQL 8.0 database
+- **backend**: Node.js Express API server
+- **frontend**: React Vite development server
+
+### Development with Docker
+
+For development, you can run the frontend locally while keeping backend and database in containers:
+
+```bash
+# Terminal 1: Start backend and database
+docker-compose up backend mysql
+
+# Terminal 2: Run frontend locally
+cd Frontend
+npm start
+```
+
+## �📁 Project Structure
 
 ```
 TravelOS/
@@ -176,6 +264,7 @@ TravelOS/
 │   │   ├── 5-controllers/     # Route controllers
 │   │   ├── 6-middleware/      # Express middleware
 │   │   └── app.ts             # Main application file
+│   ├── Dockerfile             # Backend Docker configuration
 │   └── package.json
 │
 ├── Frontend/
@@ -192,10 +281,12 @@ TravelOS/
 │   │   ├── Services/          # API services
 │   │   ├── Utils/             # Utility functions
 │   │   └── main.tsx           # Entry point
+│   ├── Dockerfile             # Frontend Docker configuration
 │   └── package.json
 │
 ├── Database/                  # Database schema & migrations
-└── .gitignore
+├── docker-compose.yml         # Docker Compose configuration
+├── .gitignore
 ```
 
 ## 🔌 API Endpoints
@@ -277,7 +368,7 @@ Comprehensive analytics showing:
 ## 🐛 Troubleshooting
 
 ### Backend won't start
-- Ensure MySQL is running
+- Ensure MySQL is running (for local) or Docker containers are up
 - Check `.env` file configuration
 - Verify database credentials
 - Check port 4000 is not in use
@@ -287,9 +378,15 @@ Comprehensive analytics showing:
 - Clear Vite cache: `rm -rf dist && npm run build`
 
 ### Database connection issues
-- Verify MySQL service is running
+- For local: Verify MySQL service is running
+- For Docker: Ensure `MYSQL_HOST=mysql` in `.env`
 - Check `MYSQL_HOST`, `MYSQL_USER`, `MYSQL_PASSWORD` in `.env`
 - Ensure the database specified in `MYSQL_DATABASE` exists
+
+### Docker issues
+- Ensure Docker Desktop is running
+- Try `docker-compose down -v` to clean volumes and restart
+- Check container logs: `docker-compose logs [service-name]`
 
 ## 📝 License
 
