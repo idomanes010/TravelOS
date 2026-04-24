@@ -4,16 +4,17 @@ FROM node:24-alpine
 # Create project folder inside the image:
 WORKDIR /app
 
-# Copy package.json into /app:
-COPY ./Frontend/package.json /app
+# Copy package files:
+COPY ./Frontend/package.json ./Frontend/package-lock.json /app/
 
 # Install node_modules: 
-RUN npm install
+RUN npm ci
 
 # Copy our App
 COPY ./Frontend /app
 
-# -------------------------------------------------------------
+# Expose port for Vite dev server:
+EXPOSE 5173
 
 # When container start - which command will run our app:
-ENTRYPOINT npm start
+CMD ["npm", "start"]

@@ -23,8 +23,8 @@ services:
 
     # Volumes:
     volumes:
-      - mysql-volume:/var/lib/mysql
-      - ./Database/MySQL:/docker-entrypoint-initdb.d
+       - mysql-volume:/var/lib/mysql
+       - ./Database/vacationdb.sql:/docker-entrypoint-initdb.d/vacationdb.sql
 
     # Restart policy - when to restart the container:
     restart: unless-stopped
@@ -105,6 +105,10 @@ services:
     # What is the container name: 
     container_name: frontend-container
 
+    # Environment variables for frontend:
+    environment:
+      VITE_API_URL: http://backend-service:4000
+
     # Port mapping (hostPort:containerPort)
     ports:
       - 80:5173
@@ -114,7 +118,7 @@ services:
 
     # Constantly check if our server works:
     healthcheck:
-      test: ["CMD", "node", "--eval", "require('http').get('http://localhost:5173', response => process.exit(response.statusCode === 200 ? 0 : 1))"]
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5173"]
       interval: 30s
       timeout: 5s
       retries: 3

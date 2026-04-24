@@ -4,16 +4,17 @@ FROM node:24-alpine
 # Create project folder inside the image:
 WORKDIR /app
 
-# Copy package.json into /app:
-COPY ./Backend/package.json /app
+# Copy package files:
+COPY ./Backend/package.json ./Backend/package-lock.json /app/
 
 # Install node_modules: 
-RUN npm install
+RUN npm ci
 
 # Copy our App
 COPY ./Backend /app
 
-# -------------------------------------------------------------
+# Expose port for backend service:
+EXPOSE 4000
 
 # When container start - which command will run our app:
-ENTRYPOINT npm start
+CMD ["npm", "start"]
