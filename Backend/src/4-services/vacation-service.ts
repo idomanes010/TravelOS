@@ -28,7 +28,7 @@ class VacationService {
         )`;
         }
 
-        // 🔥 vacations עם pagination
+        // vacations pagination
         const vacationsSql = `
         SELECT * FROM vacations
         ${filterCondition}

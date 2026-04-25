@@ -14,8 +14,6 @@ class VacationController {
         this.router.get("/api/vacations", securityMiddleware.verifyToken, this.getAllVacations);
         this.router.get("/api/vacations/images/:imageName", this.getImage);
         this.router.get("/api/vacations/:vacationId", securityMiddleware.verifyToken, this.getVacationById);
-        // this.router.get("/api/vacations/report/csv", securityMiddleware.verifyToken, this.getReportCsv);
-
     }
 
     private getAllVacations = async (request: Request, response: Response, next: NextFunction) => {
@@ -53,18 +51,6 @@ class VacationController {
             next(err);
         }
     };
-
-    // private getReportCsv = async (request: Request, response: Response, next: NextFunction) => {
-    //     try {
-    //         const csvData = await vacationService.getVacationsReportCsv();
-    //         response.setHeader("Content-Type", "text/csv");
-    //         response.setHeader("Content-Disposition", "attachment; filename=vacations-report.csv");
-    //         response.status(StatusCode.OK).send(csvData);
-    //     }
-    //     catch (err: any) {
-    //         next(err);
-    //     }
-    // }
 }
 
 export const vacationController = new VacationController();
