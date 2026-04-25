@@ -79,34 +79,3 @@ export function Login() {
 
 
 
-// export function Login() {
-//     const { register, handleSubmit } = useForm<CredentialsModel>();
-//     const navigate = useNavigate();
-
-//     async function send(credentials: CredentialsModel) {
-//         try {
-//             await userService.login(credentials);
-//             notify.success("Welcome back fellow travelers!");
-//             navigate("/home");
-//         } catch (err: any) {
-//             notify.error(err);
-//         }
-//     }
-
-//     return (
-//         <div className="Login">
-//             <form onSubmit={handleSubmit(send)}>
-
-//                 <label>Email: </label>
-//                 <input type="email" {...register("email")} required />
-
-//                 <label>Password: </label>
-//                 <input type="password" {...register("password")} required minLength={4} maxLength={30} />
-
-//                 <button>Login</button>
-
-//                 <p>Don't have an account? <NavLink to="/register">Click to Register</NavLink></p>
-//             </form>
-//         </div>
-//     );
-// }

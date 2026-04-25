@@ -83,20 +83,6 @@ class VacationService {
         return vacation;
     }
 
-    // public async getVacationsReportCsv(): Promise<string> {
-    //     const reportData = await adminService.getVacationReport();
-
-    //     let csv = "Destination,Likes\n";
-
-    //     for (const vacation of reportData) {
-    //         const destination = `"${vacation.destination.replace(/"/g, '""')}"`;
-    //         csv += `${destination},${vacation.likesCount}\n`;
-    //     }
-
-    //     return csv;
-    // }
-
-
     public getImagePath(imageName: string): string {
         return fileSaver.getFilePath(imageName);
     }
